@@ -19,6 +19,29 @@ RealTimePredictServer
 - 步行
 - 站立
 
+要点
+---
+
+部署本项目时，需要修改SVM算法Servlet中指定的svm\_test\_set绝对路径为部署时Tomcat服务的绝对路径。
+
+用法
+---
+部署完成后，需要结合RealTimePredictClient（Android客户端）使用。Android客户端收集手机内置的三轴加速度数据，并进行相应特征的提取，并以json的格式发送给本服务端，服务端接收到POST请求后，调用识别模型进行识别，并将识别的结果以text/plain的形式返回给Android客户端。也可通过Simple REST Client（Chrome插件）工具模拟POST请求。
+
+Example：
+
+1. 测试数据： 
+```
+{X_Average:8.23366394042969,Y_Average:-6.31057891845703,Z_Average:-0.774726,X_Deviation:0.82977,Y_Deviation:0.5929037,Z_Deviation:0.142005,XY_Correlation:-0.39356,YZ_Correlation:0.3101246,XZ_Correlation:-0.242845,X_Skewness:0.41335687,Y_Skewness:-1.32150137768,Z_Skewness:1.00981784,X_Kurtosis:-1.592978,Y_Kurtosis:1.176373,Z_Kurtosis:0.032665}
+```
+2. 发送POST请求，如
+http://202.200.119.163:8080/realtimepredictserver/svm
+http://202.200.119.163:8080/realtimepredictserver/decisiontree
+
+3. 返回结果
+
+![模拟请求](src/main/resources/request.jpg)
+
 代码类简要介绍
 ---
 

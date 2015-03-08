@@ -26,39 +26,24 @@ import edu.xautjzd.activityrecognition.predict.util.AttributeDao;
 import quickml.data.AttributesMap;
 import quickml.supervised.classifier.randomForest.RandomForest;
 
-@WebServlet("/DecisionTreeServlet")
+@WebServlet("/decisiontree")
 public class DecisionTreeServlet extends HttpServlet {
-	
-	/*public static void main(String []args) {
-		DecisionTreeServlet servlet = new DecisionTreeServlet();	
-		try {
-			servlet.doPost(null, null);
-			
-		} catch (ServletException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}*/
 
 	private static final long serialVersionUID = 1L;
 	private static final Logger LOG = LoggerFactory.getLogger(DecisionTreeServlet.class);
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse response)
-			throws ServletException, IOException {
-		
+			throws ServletException, IOException {	
 		/*ApplicationContext appContext = 
 		    	  new ClassPathXmlApplicationContext("ApplicationContext.xml");
 		AttributeDao attributeDao = (AttributeDao)appContext.getBean("attributeDao");
 		List <String> actions = attributeDao.getActions();*/
-
 		//doPost(null, null);
+		
 		PrintWriter writer = response.getWriter();
 		response.setContentType("text/plain");
-		writer.println("test");
+		writer.println("decisitiontree");
 		writer.close();
 	}
 
@@ -123,7 +108,7 @@ public class DecisionTreeServlet extends HttpServlet {
 				        maxEntry = entry;
 				    }
 				}	
-				LOG.debug(maxEntry.getKey());
+				LOG.info("Action: " + maxEntry.getKey());
 				
 				response.setHeader("Content-Type", "text/plain;charset=UTF-8");
 				PrintWriter writer = response.getWriter();
