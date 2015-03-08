@@ -30,15 +30,22 @@ RealTimePredictServer
 
 Example：
 
-1. 测试数据： 
+- 测试数据
 ```
 {X_Average:8.23366394042969,Y_Average:-6.31057891845703,Z_Average:-0.774726,X_Deviation:0.82977,Y_Deviation:0.5929037,Z_Deviation:0.142005,XY_Correlation:-0.39356,YZ_Correlation:0.3101246,XZ_Correlation:-0.242845,X_Skewness:0.41335687,Y_Skewness:-1.32150137768,Z_Skewness:1.00981784,X_Kurtosis:-1.592978,Y_Kurtosis:1.176373,Z_Kurtosis:0.032665}
 ```
-2. 发送POST请求，如
-http://202.200.119.163:8080/realtimepredictserver/svm
-http://202.200.119.163:8080/realtimepredictserver/decisiontree
 
-3. 返回结果
+- 发送POST请求
+
+eg:
+
+> http://202.200.119.163:8080/realtimepredictserver/svm
+
+or 
+> http://202.200.119.163:8080/realtimepredictserver/decisiontree
+
+
+- 返回结果
 
 ![模拟请求](src/main/resources/request.jpg)
 
